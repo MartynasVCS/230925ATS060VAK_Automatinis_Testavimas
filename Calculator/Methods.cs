@@ -1,4 +1,6 @@
-﻿namespace Calculator
+﻿using System;
+
+namespace Calculator
 {
     public class Methods
     {
@@ -19,7 +21,7 @@
 
         static public double Divide(int number1, int number2)
         {
-            return (double)number1 / number2;
+            return Math.Round((double)number1 / number2, 4);
         }
     }
 }
