@@ -23,15 +23,12 @@ namespace CalculatorUnitTests
         [Test]
         public void TestDivision()
         {
-            // Arrange (Testo duomenys)
             int number1 = 5;
             int number2 = 2;
             double expectedResult = 2.5;
 
-            // Act (Testo veiksmai)
             double actualResult = Methods.Divide(number1, number2);
 
-            // Assert (Testo rezultatų palyginimas)
             Assert.AreEqual(expectedResult, actualResult);
         }
     }
