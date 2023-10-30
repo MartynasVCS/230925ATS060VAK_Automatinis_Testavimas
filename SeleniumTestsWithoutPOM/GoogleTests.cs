@@ -7,7 +7,7 @@ namespace SeleniumTestsWithoutPOM
     public class GoogleTests
     {
         [Test]
-        public void DemoTest()
+        public void SearchInGoogle()
         {
             // Arrange
             string expectedResult = "Hello World - „Google“ paieška";
