@@ -16,10 +16,10 @@ namespace SeleniumTestsWithoutPOM
             IWebDriver driver = new ChromeDriver();
             driver.Url = "https://www.google.com";
 
-            IWebElement buttonDeclineCookies = driver.FindElement(By.XPath("//*[@id=\"W0wltc\"]"));
+            IWebElement buttonDeclineCookies = driver.FindElement(By.XPath("//*[@id='W0wltc']"));
             buttonDeclineCookies.Click();
 
-            IWebElement inputSearch = driver.FindElement(By.XPath("//*[@id=\"APjFqb\"]"));
+            IWebElement inputSearch = driver.FindElement(By.XPath("//*[@id='APjFqb']"));
             inputSearch.SendKeys("Hello World");
 
             IWebElement buttonSearch = driver.FindElement(By.XPath("(//*[@name='btnK'])[2]"));
