@@ -9,7 +9,7 @@ namespace SeleniumTestsWithoutPOM
         [Test]
         public void SingleInputFieldTest()
         {
-            string expectedMessage = "gshdujakfgksudjh";
+            string expectedMessage = "Hellow World";
 
             IWebDriver driver = new ChromeDriver();
             driver.Url = "https://demo.seleniumeasy.com/basic-first-form-demo.html";
