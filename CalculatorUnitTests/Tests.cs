@@ -11,7 +11,7 @@ namespace CalculatorUnitTests
             // Arrange (Testo duomenys)
             int number1 = 5;
             int number2 = 2;
-            int expectedResult = 10;
+            int expectedResult = 7;
 
             // Act (Testo veiksmai)
             int actualResult = Methods.Sum(number1, number2);
