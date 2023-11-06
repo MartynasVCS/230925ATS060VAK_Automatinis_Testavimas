@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 
 namespace SeleniumTestsWithoutPOM
 {
@@ -33,9 +34,32 @@ namespace SeleniumTestsWithoutPOM
             inputCurrentAddress.SendKeys(currentAddress);
             inputPermanentAddress.SendKeys(permanentAddress);
 
-            ((IJavaScriptExecutor)driver).ExecuteScript("window.scrollBy(0, 200);");
-            buttonSubmit.Click();
+            int maxTries = 20;
+            int currentTry = 0;
 
+            while (currentTry <= maxTries)
+            {
+                try
+                {
+                    if (currentTry == maxTries)
+                    {
+                        throw new Exception("Try limit reached");
+                    }
+
+                    buttonSubmit.Click();
+                    break;
+                }
+                catch (ElementClickInterceptedException)
+                {
+                    ((IJavaScriptExecutor)driver).ExecuteScript("window.scrollBy(0, 10);");
+                    currentTry++;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
+            }
+            
             IWebElement paragraphFullName = driver.FindElement(By.XPath("//*[@id='output']//*[@id='name']"));
             IWebElement paragraphEmail = driver.FindElement(By.XPath("//*[@id='output']//*[@id='email']"));
             IWebElement paragraphCurrentAddress = driver.FindElement(By.XPath("//*[@id='output']//*[@id='currentAddress']"));
@@ -45,6 +69,8 @@ namespace SeleniumTestsWithoutPOM
             Assert.AreEqual(expectedEmail, paragraphEmail.Text);
             Assert.AreEqual(expectedCurrentAddress, paragraphCurrentAddress.Text);
             Assert.AreEqual(expectedPermanentAddress, paragraphPermanentAddress.Text);
+
+            driver.Quit();
         }
     }
 }
