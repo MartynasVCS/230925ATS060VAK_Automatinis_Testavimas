@@ -34,31 +34,8 @@ namespace SeleniumTestsWithoutPOM
             inputCurrentAddress.SendKeys(currentAddress);
             inputPermanentAddress.SendKeys(permanentAddress);
 
-            int maxTries = 20;
-            int currentTry = 0;
-
-            while (currentTry <= maxTries)
-            {
-                try
-                {
-                    if (currentTry == maxTries)
-                    {
-                        throw new Exception("Try limit reached");
-                    }
-
-                    buttonSubmit.Click();
-                    break;
-                }
-                catch (ElementClickInterceptedException)
-                {
-                    ((IJavaScriptExecutor)driver).ExecuteScript("window.scrollBy(0, 10);");
-                    currentTry++;
-                }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
-            }
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", buttonSubmit);
+            buttonSubmit.Click();
             
             IWebElement paragraphFullName = driver.FindElement(By.XPath("//*[@id='output']//*[@id='name']"));
             IWebElement paragraphEmail = driver.FindElement(By.XPath("//*[@id='output']//*[@id='email']"));
