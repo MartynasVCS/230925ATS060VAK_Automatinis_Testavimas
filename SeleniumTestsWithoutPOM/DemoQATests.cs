@@ -49,5 +49,37 @@ namespace SeleniumTestsWithoutPOM
 
             driver.Quit();
         }
+
+        [Test]
+        public void TextBoxFormWithInvalidEmail()
+        {
+            string email = "invalid";
+            string expectedEmailInputClassAttributeValue = "field-error";
+
+            IWebDriver driver = new ChromeDriver();
+            driver.Url = "https://demoqa.com/text-box";
+
+            IWebElement inputEmail = driver.FindElement(By.XPath("//*[@id='userEmail']"));
+            IWebElement buttonSubmit = driver.FindElement(By.XPath("//*[@id='submit']"));
+
+            // Patikriname, kad testo pradžioje email laukelyje nėra klaidos
+            Assert.IsFalse(inputEmail.GetAttribute("class").Contains(expectedEmailInputClassAttributeValue));
+            Assert.That(!inputEmail.GetAttribute("class").Contains(expectedEmailInputClassAttributeValue));
+            StringAssert.DoesNotContain(expectedEmailInputClassAttributeValue, inputEmail.GetAttribute("class"));
+
+            inputEmail.SendKeys(email);
+
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", buttonSubmit);
+            buttonSubmit.Click();
+
+            string actualEmailInputClassAttributeValue = inputEmail.GetAttribute("class");
+
+            // Patikriname, kad email laukelyje yra klaida
+            Assert.IsTrue(actualEmailInputClassAttributeValue.Contains(expectedEmailInputClassAttributeValue));
+            Assert.That(actualEmailInputClassAttributeValue.Contains(expectedEmailInputClassAttributeValue));
+            StringAssert.Contains(expectedEmailInputClassAttributeValue, actualEmailInputClassAttributeValue);
+
+            driver.Quit();
+        }
     }
 }
