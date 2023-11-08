@@ -6,6 +6,13 @@ namespace SeleniumTests.Google
 {
     internal class SearchScenario
     {
+        [SetUp]
+        public void SetUp()
+        {
+            Driver.InitializeDriver();
+            SearchPage.Open();
+        }
+
         [Test]
         public void SearchInGoogle()
         {
@@ -13,18 +20,19 @@ namespace SeleniumTests.Google
             string expectedResult = "Hello World - „Google“ paieška";
 
             // Act
-            Driver.InitializeDriver();
-
-            SearchPage.Open();
             SearchPage.ClickButtonDeclineCookies();
             SearchPage.EnterSearchPhrase("Hello World");
             SearchPage.ClickButtonSearch();
             string actualResult = Driver.GetPageTitle();
 
-            Driver.QuitDriver();
-
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            Driver.QuitDriver();
         }
     }
 }
