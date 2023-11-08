@@ -56,11 +56,11 @@
     <Compile Include="Driver.cs" />
     <Compile Include="Pages\Common.cs" />
     <Compile Include="Pages\Google\SearchPage.cs" />
+    <Compile Include="Pages\SeleniumEasy\BasicFirstFormDemo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\DemoQA\" />
-    <Folder Include="Pages\SeleniumEasy\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

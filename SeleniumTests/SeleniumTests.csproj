@@ -51,10 +51,10 @@
     <Compile Include="BaseTests\BaseTest.cs" />
     <Compile Include="Google\SearchScenario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeleniumEasy\BasicFirstFormDemoTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DemoQA\" />
-    <Folder Include="SeleniumEasy\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
