@@ -55,6 +55,7 @@ namespace SeleniumTestsWithoutPOM
         {
             string email = "invalid";
             string expectedEmailInputClassAttributeValue = "field-error";
+            string expectedBorderColor = "rgb(255, 0, 0)";
 
             IWebDriver driver = new ChromeDriver();
             driver.Url = "https://demoqa.com/text-box";
@@ -72,12 +73,15 @@ namespace SeleniumTestsWithoutPOM
             ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", buttonSubmit);
             buttonSubmit.Click();
 
+            System.Threading.Thread.Sleep(150);
+            string actualBorderColor = inputEmail.GetCssValue("border-color");
             string actualEmailInputClassAttributeValue = inputEmail.GetAttribute("class");
 
             // Patikriname, kad email laukelyje yra klaida
             Assert.IsTrue(actualEmailInputClassAttributeValue.Contains(expectedEmailInputClassAttributeValue));
             Assert.That(actualEmailInputClassAttributeValue.Contains(expectedEmailInputClassAttributeValue));
             StringAssert.Contains(expectedEmailInputClassAttributeValue, actualEmailInputClassAttributeValue);
+            Assert.That(actualBorderColor, Is.EqualTo(expectedBorderColor));
 
             driver.Quit();
         }
