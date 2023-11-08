@@ -1,18 +1,12 @@
 ﻿using NUnit.Framework;
 using SeleniumFramework;
 using SeleniumFramework.Pages.Google;
+using SeleniumTests.BaseTests;
 
 namespace SeleniumTests.Google
 {
-    internal class SearchScenario
+    internal class SearchScenario : BaseTest
     {
-        [SetUp]
-        public void SetUp()
-        {
-            Driver.InitializeDriver();
-            SearchPage.Open();
-        }
-
         [Test]
         public void SearchInGoogle()
         {
@@ -20,6 +14,7 @@ namespace SeleniumTests.Google
             string expectedResult = "Hello World - „Google“ paieška";
 
             // Act
+            SearchPage.Open();
             SearchPage.ClickButtonDeclineCookies();
             SearchPage.EnterSearchPhrase("Hello World");
             SearchPage.ClickButtonSearch();
@@ -27,12 +22,6 @@ namespace SeleniumTests.Google
 
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            Driver.QuitDriver();
         }
     }
 }
