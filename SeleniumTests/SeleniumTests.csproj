@@ -49,13 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseTests\BaseTest.cs" />
+    <Compile Include="DemoQA\TextBoxTests.cs" />
     <Compile Include="Google\SearchScenario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleniumEasy\BasicFirstFormDemoTests.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DemoQA\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
