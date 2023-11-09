@@ -42,6 +42,7 @@ namespace SeleniumTests.DemoQA
 
             Assert.That(actualBorderColor, Is.EqualTo(expectedBorderColor));
             Assert.That(actualClassValue.Contains(expectedClassValue));
+            Assert.That(TextBox.EmailOutputExists(), Is.False);
         }
     }
 }

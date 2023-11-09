@@ -68,6 +68,29 @@ namespace SeleniumFramework.Pages
             return statusList;
         }
 
+        internal static bool ElementExists(string locator)
+        {
+            try
+            {
+                IWebElement element = GetElement(locator);
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        // Kitas būdas patikrinti ar elementas egzistuoja
+        // Čia remiamės tuo, kad FindElements metodas grąžina tuščią sąrašą jei neranda elementų
+        //internal static bool ElementExists(string locator)
+        //{
+        //    List<IWebElement> elements = GetElements(locator);
+        //    return elements.Count != 0;
+        //}
     }
 }

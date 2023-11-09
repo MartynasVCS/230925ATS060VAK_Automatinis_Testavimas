@@ -1,5 +1,4 @@
-﻿using OpenQA.Selenium;
-using System;
+﻿using System;
 
 namespace SeleniumFramework.Pages.DemoQA
 {
@@ -66,6 +65,11 @@ namespace SeleniumFramework.Pages.DemoQA
         public static string GetEmailInputClassValue()
         {
             return Common.GetElementHtmlAttributeValue(Locators.TextBox.InputEmail, "class");
+        }
+
+        public static bool EmailOutputExists()
+        {
+            return Common.ElementExists(Locators.TextBox.OutputEmail);
         }
     }
 }
