@@ -14,5 +14,11 @@
             internal static string OutputCurrentAddress = "//*[@id='output']//*[@id='currentAddress']";
             internal static string OutputPermanentAddress = "//*[@id='output']//*[@id='permanentAddress']";
         }
+
+        internal class DynamicProperties
+        {
+            internal static string ButtonFirst = "//*[@id='enableAfter']";
+            internal static string ButtonSecond = "//*[@id='colorChange']";
+        }
     }
 }

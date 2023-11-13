@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,6 +85,24 @@ namespace SeleniumFramework.Pages
             {
                 throw ex;
             }
+        }
+
+        internal static void WaitForElementToBeEnabled(string locator)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(locator)));
+            wait.Until(d => d.FindElement(By.XPath(locator)).Enabled == true);
+        }
+
+        internal static bool GetElementEnabledStatus(string locator)
+        {
+            return GetElement(locator).Enabled;
+        }
+
+        internal static void WaitForElementCssPropertyToBe(string locator, string propertyName, string expectedPropertyValue)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
+            wait.Until(d => d.FindElement(By.XPath(locator)).GetCssValue(propertyName) == expectedPropertyValue);
         }
 
         // Kitas būdas patikrinti ar elementas egzistuoja
