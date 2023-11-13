@@ -105,6 +105,12 @@ namespace SeleniumFramework.Pages
             wait.Until(d => d.FindElement(By.XPath(locator)).GetCssValue(propertyName) == expectedPropertyValue);
         }
 
+        internal static void WaitForElementToNotContainText(string locator, string text)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
+            wait.Until(d => !d.FindElement(By.XPath(locator)).Text.Contains(text));
+        }
+
         // Kitas būdas patikrinti ar elementas egzistuoja
         // Čia remiamės tuo, kad FindElements metodas grąžina tuščią sąrašą jei neranda elementų
         //internal static bool ElementExists(string locator)
