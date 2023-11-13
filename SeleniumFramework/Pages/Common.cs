@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
@@ -109,6 +110,15 @@ namespace SeleniumFramework.Pages
         {
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
             wait.Until(d => !d.FindElement(By.XPath(locator)).Text.Contains(text));
+        }
+
+        internal static void DoubleClickElement(string locator)
+        {
+            IWebElement element = GetElement(locator);
+
+            Actions actions = new Actions(Driver.GetDriver());
+            actions.DoubleClick(element);
+            actions.Perform();
         }
 
         // Kitas būdas patikrinti ar elementas egzistuoja

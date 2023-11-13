@@ -20,5 +20,11 @@
             internal static string ButtonFirst = "//*[@id='enableAfter']";
             internal static string ButtonSecond = "//*[@id='colorChange']";
         }
+
+        internal class Buttons
+        {
+            internal static string ButtonDoubleClickMe = "//*[@id='doubleClickBtn']";
+            internal static string OutputDoubleClick = "//*[@id='doubleClickMessage']";
+        }
     }
 }

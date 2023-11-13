@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseTests\BaseTest.cs" />
+    <Compile Include="DemoQA\ButtonsTests.cs" />
     <Compile Include="DemoQA\DynamicPropertiesTests.cs" />
     <Compile Include="DemoQA\TextBoxTests.cs" />
     <Compile Include="Google\SearchScenario.cs" />
