@@ -121,6 +121,18 @@ namespace SeleniumFramework.Pages
             actions.Perform();
         }
 
+        internal static void WaitForElementHtmlAttributeToNotHaveValue(string locator, string attributeName, string attributeValue)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
+            wait.Until(d => d.FindElement(By.XPath(locator)).GetAttribute(attributeName) != attributeValue);
+        }
+
+        internal static void WaitForElementToBePresent(string locator)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
+            wait.Until(ExpectedConditions.ElementExists(By.XPath(locator)));
+        }
+
         // Kitas būdas patikrinti ar elementas egzistuoja
         // Čia remiamės tuo, kad FindElements metodas grąžina tuščią sąrašą jei neranda elementų
         //internal static bool ElementExists(string locator)

@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using SeleniumUndetectedChromeDriver;
 using System;
 using System.IO;
 using System.Threading;
@@ -10,9 +11,16 @@ namespace SeleniumFramework
     {
         internal static ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
 
-        public static void InitializeDriver()
+        public static void InitializeDriver(bool useUndetected = false)
         {
-            driver.Value = new ChromeDriver();
+            if (useUndetected)
+            {
+                driver.Value = UndetectedChromeDriver.Create(driverExecutablePath: "C:\\Users\\Martynas\\Desktop\\chromedriver.exe");
+            }
+            else
+            {
+                driver.Value = new ChromeDriver();
+            }
         }
 
         internal static IWebDriver GetDriver()
