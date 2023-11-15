@@ -3,8 +3,10 @@ using SeleniumFramework.Pages.SeleniumEasy;
 using SeleniumTests.BaseTests;
 using System.Collections.Generic;
 
+[assembly: LevelOfParallelism(2)]
 namespace SeleniumTests.SeleniumEasy
 {
+    [Parallelizable(scope: ParallelScope.All)]
     internal class BasicCheckboxDemoTests : BaseTest
     {
         [SetUp]

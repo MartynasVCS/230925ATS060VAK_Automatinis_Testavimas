@@ -3,6 +3,7 @@ using System;
 
 namespace UnitTests
 {
+    [Parallelizable(scope: ParallelScope.All)]
     public class Assignment17
     {
         [Test]
