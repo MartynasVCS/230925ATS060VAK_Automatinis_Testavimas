@@ -34,5 +34,19 @@
             Common.ClickElement(buttonLocator);
             Common.WaitForElementToBePresent(bannerLocator);
         }
+
+        public static void ClickProfileButton()
+        {
+            string locator = "//*[contains(@aria-label,'Google Account:')]";
+            Common.ClickElement(locator);
+        }
+
+        public static void ClickLogoutButton()
+        {
+            string locator = "//*[@data-et='10']/a";
+            Common.SwitchToIFrameByName("account");
+            Common.ClickElement(locator);
+            Common.SwitchToDefaultContent();
+        }
     }
 }

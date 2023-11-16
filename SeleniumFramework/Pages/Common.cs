@@ -139,6 +139,11 @@ namespace SeleniumFramework.Pages
             Driver.GetDriver().SwitchTo().Frame(element);
         }
 
+        internal static void SwitchToIFrameByName(string name)
+        {
+            Driver.GetDriver().SwitchTo().Frame(name);
+        }
+
         internal static void SwitchToDefaultContent()
         {
             Driver.GetDriver().SwitchTo().DefaultContent();

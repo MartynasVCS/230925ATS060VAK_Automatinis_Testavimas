@@ -17,5 +17,13 @@ namespace SeleniumTests.Google
             LoginPage.ClickButtonNextAfterPassword();
             Assert.That(Driver.GetPageTitle(), Is.EqualTo("Google Account"));
         }
+
+        [Test]
+        public void LogoutFromGoogle()
+        {
+            LoginPage.ClickProfileButton();
+            LoginPage.ClickLogoutButton();
+            Assert.That(Driver.GetPageTitle(), Is.EqualTo("Prisijungti – „Google“ paskyros"));
+        }
     }
 }
