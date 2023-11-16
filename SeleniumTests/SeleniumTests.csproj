@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="RunSettings\firefox.runsettings" />
+    <None Include="RunSettings\chrome.runsettings" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SeleniumFramework\SeleniumFramework.csproj">

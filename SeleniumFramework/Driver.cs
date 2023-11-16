@@ -19,13 +19,23 @@ namespace SeleniumFramework
             switch (browser)
             {
                 case "chrome":
+
+                    ChromeOptions options = new ChromeOptions();
+                    options.AddArgument("--window-size=1920,1080");
+                    
+                    string headless = TestContext.Parameters.Get("headless");
+                    if (headless == "true")
+                    {
+                        options.AddArgument("--headless");
+                    }
+
                     if (useUndetected)
                     {
                         driver.Value = UndetectedChromeDriver.Create(driverExecutablePath: "C:\\Users\\Martynas\\Desktop\\chromedriver.exe");
                     }
                     else
                     {
-                        driver.Value = new ChromeDriver();
+                        driver.Value = new ChromeDriver(options);
                     }
                     break;
                 case "firefox":
