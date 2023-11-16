@@ -7,7 +7,7 @@ namespace SeleniumTests.Google
 {
     internal class LoginScenario : BaseTestGoogle
     {
-        [Test]
+        [Test, Order(1)]
         public void LoginToGoogle()
         {
             LoginPage.Open();
@@ -18,7 +18,7 @@ namespace SeleniumTests.Google
             Assert.That(Driver.GetPageTitle(), Is.EqualTo("Google Account"));
         }
 
-        [Test]
+        [Test, Order(2)]
         public void LogoutFromGoogle()
         {
             LoginPage.ClickProfileButton();

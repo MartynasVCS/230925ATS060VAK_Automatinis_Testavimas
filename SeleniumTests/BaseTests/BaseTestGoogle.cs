@@ -6,13 +6,13 @@ namespace SeleniumTests.BaseTests
 {
     internal class BaseTestGoogle
     {
-        [SetUp]
+        [OneTimeSetUp]
         public void SetUp()
         {
             Driver.InitializeDriver(useUndetected: true);
         }
 
-        [TearDown]
+        [OneTimeTearDown]
         public void TearDown()
         {
             if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
@@ -22,7 +22,7 @@ namespace SeleniumTests.BaseTests
                 TestContext.AddTestAttachment(filePath);
             }
 
-            Driver.QuitDriver();
+            //Driver.QuitDriver();
         }
     }
 }
