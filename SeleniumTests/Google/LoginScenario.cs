@@ -11,9 +11,9 @@ namespace SeleniumTests.Google
         public void LoginToGoogle()
         {
             LoginPage.Open();
-            LoginPage.EnterEmail("ponas.automatonas@gmail.com");
+            LoginPage.EnterEmail(TestContext.Parameters.Get("googleEmail"));
             LoginPage.ClickButtonNextAfterEmail();
-            LoginPage.EnterPassword("gaf0kna9jqg*eub@EVR");
+            LoginPage.EnterPassword(TestContext.Parameters.Get("googlePassword"));
             LoginPage.ClickButtonNextAfterPassword();
             Assert.That(Driver.GetPageTitle(), Is.EqualTo("Google Account"));
         }

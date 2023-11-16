@@ -61,7 +61,9 @@
     <Compile Include="SeleniumEasy\BasicFirstFormDemoTests.cs" />
     <Compile Include="SeleniumEasy\DynamicDataLoadingDemoTests.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="RunSettings\demo1.runsettings" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
