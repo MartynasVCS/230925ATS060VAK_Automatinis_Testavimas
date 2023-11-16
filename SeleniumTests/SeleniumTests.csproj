@@ -62,7 +62,7 @@
     <Compile Include="SeleniumEasy\DynamicDataLoadingDemoTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="RunSettings\demo1.runsettings" />
+    <None Include="RunSettings\googleCredentials.runsettings" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

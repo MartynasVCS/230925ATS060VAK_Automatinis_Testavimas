@@ -1,5 +1,7 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using SeleniumUndetectedChromeDriver;
 using System;
 using System.IO;
@@ -10,17 +12,30 @@ namespace SeleniumFramework
     public class Driver
     {
         internal static ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
+        internal static string browser = TestContext.Parameters.Get("browser");
 
         public static void InitializeDriver(bool useUndetected = false)
         {
-            if (useUndetected)
+            switch (browser)
             {
-                driver.Value = UndetectedChromeDriver.Create(driverExecutablePath: "C:\\Users\\Martynas\\Desktop\\chromedriver.exe");
+                case "chrome":
+                    if (useUndetected)
+                    {
+                        driver.Value = UndetectedChromeDriver.Create(driverExecutablePath: "C:\\Users\\Martynas\\Desktop\\chromedriver.exe");
+                    }
+                    else
+                    {
+                        driver.Value = new ChromeDriver();
+                    }
+                    break;
+                case "firefox":
+                    driver.Value = new FirefoxDriver();
+                    break;
+                default:
+                    throw new Exception($"Value '{browser}' is not valid for 'browser' parameter");
+
             }
-            else
-            {
-                driver.Value = new ChromeDriver();
-            }
+            
         }
 
         internal static IWebDriver GetDriver()
