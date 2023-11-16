@@ -133,6 +133,17 @@ namespace SeleniumFramework.Pages
             wait.Until(ExpectedConditions.ElementExists(By.XPath(locator)));
         }
 
+        internal static void SwitchToIFrameByLocator(string locator)
+        {
+            IWebElement element = GetElement(locator);
+            Driver.GetDriver().SwitchTo().Frame(element);
+        }
+
+        internal static void SwitchToDefaultContent()
+        {
+            Driver.GetDriver().SwitchTo().DefaultContent();
+        }
+
         // Kitas būdas patikrinti ar elementas egzistuoja
         // Čia remiamės tuo, kad FindElements metodas grąžina tuščią sąrašą jei neranda elementų
         //internal static bool ElementExists(string locator)

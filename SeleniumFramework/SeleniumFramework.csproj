@@ -68,6 +68,7 @@
     <Compile Include="Pages\Common.cs" />
     <Compile Include="Pages\DemoQA\Buttons.cs" />
     <Compile Include="Pages\DemoQA\DynamicProperties.cs" />
+    <Compile Include="Pages\DemoQA\Frames.cs" />
     <Compile Include="Pages\DemoQA\Locators.cs" />
     <Compile Include="Pages\DemoQA\TextBox.cs" />
     <Compile Include="Pages\Google\LoginPage.cs" />
